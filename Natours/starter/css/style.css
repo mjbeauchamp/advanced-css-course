@@ -6,3 +6,72 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+
+/* This is our "reset" portion, to make sure our page looks the same in all browsers. You only put "reset" things in the star selector block IF they can't be inherited from the body element */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* We can set certain reset values in the body element because they're inherited by all children of this element, so they'll be inherited by all child elements on the page. This is more efficient than using the universal selector for everything; */
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+    padding: 30px;
+}
+
+.header {
+    position: relative;
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, 
+    rgba(126, 213, 111, 0.329), 
+    rgba(40, 180, 133, 0.315)), 
+    url('../img//hero.jpg');
+    background-size: cover;
+    background-position: top;
+    /* When writing your clip-path, it always starts with the top-left corner's coordinates first. For each of the four coordinates, you'll have two values -- how much it changes from the 0/0 starting point on the x axis and how much it changes on the y axis. As you're writing these coordinates, remember that they are all relative to the starting values in the upper-left corner. The x value is how much the point is moved horizontally from the starting corner, and the y value is how much the point is moved vertically from the start corner.  */
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px;
+}
+
+.heading-primary {
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+.heading-primary-main {
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 15px;
+}
+
+/* This code allows us to easily center the text box vertically AND horizontally. The top and left properties move the box relative to its parent element. The issue is that this doesn't account for the height and width of the box we're trying to position, instead positioning it only by its top-right corner. So then we use transform, which scoots the box BACK by 50% of its own height and width, so that it's truly positioned in the center of the page */
+.text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
